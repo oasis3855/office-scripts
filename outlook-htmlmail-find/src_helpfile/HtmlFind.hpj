@@ -1,0 +1,12 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+[OPTIONS]
+DBCS=Yes
+LCID=0x409 0x0 0x0 ; ‰pŒê (U.S.)
+REPORT=Yes
+TITLE=Outlook HTML ƒ[ƒ‹ ”­Œ© VBA g—p‚Ìèˆø‚«
+COPYRIGHT=(C) 2001-2003 INOUE. Hirokazu
+HLP=HtmlFind.hlp
+
+[FILES]
+HtmlFind.rtf

@@ -1,4 +1,17 @@
 Attribute VB_Name = "ModuleFindHtmlOpenDlg"
+' *******************
+'   OutlookHtmlFind : ModuleFindHtmlOpen.bas ver 1.2
+'
+'   Outlook HTMLメール発見ツール VBA メインダイアログのコード
+'
+'   メニューダイアログを表示する
+'   version 1.2 for Microsoft Outlook 2000 Japanese Edition
+'
+'   (C) 2001-2003 INOUE. Hirokazu , All rights reserved
+'   http://inoue-h.connect.to/
+'  このプログラム／スクリプトはフリーウエアーです
+'  このプログラム／スクリプトに対する動作・非動作の保証、実行結果の保証はありません
+' *******************
 Option Explicit
 
 Sub FindHtmlOpenDlg()
@@ -50,5 +63,6 @@ Sub FindHtmlOpenDlg()
     DlgFindHtml.Show
         
 End Sub
-    
 
+' ファイル終了 EOF
+' ***********************

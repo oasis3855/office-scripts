@@ -14,11 +14,13 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 ' *******************
-'   Outlook HTMLメール発見ツール VBA メインダイアログのコード
-'   version 1.1 for Microsoft Outlook 2000 Japanese Edition
+'   OutlookHtmlFind : DlgFindHtml.frm ver 1.2
 '
-'   (C) 2001 INOUE. Hirokazu , All rights reserved
-'   http://inoue-h.connect.to/    inoue-h@iname.com
+'   Outlook HTMLメール発見ツール VBA メインダイアログのコード
+'   version 1.2 for Microsoft Outlook 2000 Japanese Edition
+'
+'   (C) 2001-2003 INOUE. Hirokazu , All rights reserved
+'   http://inoue-h.connect.to/
 '  このプログラム／スクリプトはフリーウエアーです
 '  このプログラム／スクリプトに対する動作・非動作の保証、実行結果の保証はありません
 '
@@ -109,9 +111,11 @@ Private Sub BtnExec_Click()
         i = MsgBox("HTMLメールは発見されませんでした", vbOKOnly + vbInformation, "HTMLメール 発見ツール VBA")
     Else
         OutputStr = OutputStr + "以上、合計 " + Str(j) + " 通のメールが発見されました。" + Chr(&HD) + Chr(&HA) + Chr(&HD) + Chr(&HA) + "これらのメールをテキストファイルに出力しますか？"
+        
         i = MsgBox(OutputStr, vbYesNo + vbExclamation, "HTMLメール 発見ツール VBA")
         If i = vbYes Then
-            Call OutputTextFile(InputBox("出力テキストファイル名を指定してください"), CmbboxFolder.Text, CmbboxTray1.Text, CmbboxTray2.Text)
+            ' テキストファイル化するサブルーチンへ
+            Call OutputTextFile(CmbboxFolder.Text, CmbboxTray1.Text, CmbboxTray2.Text)
         End If
     End If
     
@@ -204,21 +208,56 @@ Private Sub CmbboxTray1_Change()
 
 End Sub
 
-Private Sub OutputTextFile(strFname As String, tray0 As String, tray1 As String, tray2 As String)
+Private Sub OutputTextFile(tray0 As String, tray1 As String, tray2 As String)
 ' ******************************
 ' HTMLメールのみをテキストファイルに書き出すサブルーチン
 ' 「テキスト化ツール｣を流用
 ' ******************************
-    If strFname = "" Then
-        MsgBox ("ファイル名が指定されませんでしたので、出力を中止します")
+    
+    Dim strFname As String      ' 出力ファイル名
+    Dim tmpStr As String        ' テンポラリ文字列
+    ' Windows のコモンダイアログ 用の構造体
+    Dim strOfn As OPENFILENAME
+    Dim nLRet As Long, nNULLPos As Long
+    
+    With strOfn
+        .lStructSize = Len(strOfn)
+        .lpstrInitialDir = ""      '（最初に表示するディレクトリ）
+                                            '（フィルターでファイル種類を絞る）
+        .lpstrFilter = "テキストファイル(*.txt)" & vbNullChar & "*.txt" _
+        & vbNullChar & "全てのファイル(*.*)" & vbNullChar & "*.*" & vbNullChar & vbNullChar
+        .nMaxFile = 256                        '（ファイル名の最大長（パス含む））
+        .lpstrFile = String(256, vbNullChar)   '（ファイル名を格納する文字列
+                                                ' NULLで埋めておく）
+        .lpstrTitle = "データを書き込むテキストファイル名の指定"
+    End With
+    
+    ' 「ファイルを保存する」ダイアログ
+    nLRet = GetSaveFileName(strOfn)
+    
+    nNULLPos = InStr(strOfn.lpstrFile, vbNullChar)  'ファイル名の終り(NULLの位置)を調べる
+    tmpStr = Left(strOfn.lpstrFile, nNULLPos - 1) 'ファイル名の有効部分を取り出す
+    
+    ' キャンセルボタンが押された
+    If nLRet = False Then
+        MsgBox ("出力を中止します")
         Exit Sub
     End If
-
+    ' 拡張子 .txt が指定されなかった場合 .txt を付ける
+    If InStr(tmpStr, ".txt") < 1 Then
+        ' 拡張子フィルタが .txt のとき
+        If strOfn.nFilterIndex = 1 Then
+            tmpStr = tmpStr + ".txt"
+        End If
+    End If
+    
+    ' 出力ファイル名を確定
+    strFname = tmpStr
+    
     On Error GoTo BtnExec_ErrHandler
     ' 一般変数
     Dim i As Integer            ' カウンタ用変数
     Dim j As Integer            ' カウンタ用変数
-    Dim tmpStr As String        ' テンポラリ文字列
     ' Outlook 自体
     Dim myNamespace As NameSpace
     ' フォルダオブジェクト
@@ -304,7 +343,7 @@ Private Sub OutputTextFile(strFname As String, tray0 As String, tray1 As String,
             fi_out.Write tmpStr
             tmpStr = "X#########################################################################" + Chr(&HD) + Chr(&HA)
             fi_out.Write tmpStr
-            tmpStr = "HTML ： " + Chr(&HD) + Chr(&HA) + OlkEmailItem.HTMLBody + Chr(&HD) + Chr(&HA)
+            tmpStr = "HTMLの本文 ： " + Chr(&HD) + Chr(&HA) + OlkEmailItem.HTMLBody + Chr(&HD) + Chr(&HA)
             fi_out.Write tmpStr
             tmpStr = "X#########################################################################" + Chr(&HD) + Chr(&HA)
             fi_out.Write tmpStr
@@ -325,22 +364,66 @@ Private Sub OutputTextFile(strFname As String, tray0 As String, tray1 As String,
     'ファイルをクローズ
     fi_out.Close
     
-    tmpStr = "電子メールアドレスを " + Str(j) + " 件追加しました"
+    tmpStr = "テキスト化したメールデータを " + Str(j) + " 件書き込みました"
     i = MsgBox(tmpStr, vbOKOnly + vbInformation, "Outlook メール テキスト化 VBA")
     
     Exit Sub
 BtnExec_ErrHandler:
-    i = MsgBox("エラーが発生しました。処理を中止します。", vbOKOnly + vbExclamation, "Outlook メール テキスト化 VBA 致命的エラー")
+    i = MsgBox("テキストファイル書き込み中にエラーが発生しました。処理を中止します。", vbOKOnly + vbExclamation, "Outlook メール テキスト化 VBA 致命的エラー")
     Exit Sub
 
 End Sub
+
+Function Sort_By_Date(a_indx() As Integer, a_date() As Date, max_a As Integer, count As Integer)
+' ******************************
+' ソーティング （最遅モード）
+' もっとスマートにしたいなら、書き換えてください。（他のアルゴリズムに）
+' でも、Pentium III とか、速いCPUではほとんど体感できないはずですが…
+' ******************************
+    Dim i As Integer
+    Dim j As Integer
+    Dim tmp_indx As Integer
+    Dim tmp_date As Date
+    
+    ' 昇順か降順かによって切り替える
+'    If DlgTxtOutMain.ChkSortRev.Value = True Then
+        For i = 1 To count - 1
+            For j = i + 1 To count
+                If a_date(i) > a_date(j) Then
+                    tmp_indx = a_indx(i)
+                    tmp_date = a_date(i)
+                    a_indx(i) = a_indx(j)
+                    a_date(i) = a_date(j)
+                    a_indx(j) = tmp_indx
+                    a_date(j) = tmp_date
+                End If
+            Next j
+        Next i
+'    Else
+'        For i = 1 To count - 1
+'            For j = i + 1 To count
+'                If a_date(i) < a_date(j) Then
+'                    tmp_indx = a_indx(i)
+'                    tmp_date = a_date(i)
+'                    a_indx(i) = a_indx(j)
+'                    a_date(i) = a_date(j)
+'                    a_indx(j) = tmp_indx
+'                    a_date(j) = tmp_date
+'                End If
+'            Next j
+'        Next i
+'    End If
+    
+    Sort_By_Date = 0
+        
+End Function
 
 Private Sub BtnAbout_Click()
 ' ******************************
 ' 著作権表示
 ' ******************************
     Dim i As Integer
-    i = MsgBox("HTMLメール 発見ツール VBA" + Chr(&HD) + Chr(&HA) + Chr(&HD) + Chr(&HA) + "(C) 2001 INOUE. Hirokazu" + Chr(&HD) + Chr(&HA) + "version 1.1 / フリーウエア" + Chr(&HD) + Chr(&HA) + "http://inoue-h.connect.to/", vbOKOnly + vbInformation, "HTMLメール 発見ツール VBA")
+    i = MsgBox("HTMLメール 発見ツール VBA" + Chr(&HD) + Chr(&HA) + Chr(&HD) + Chr(&HA) + "(C) 2001-2003 INOUE. Hirokazu" + Chr(&HD) + Chr(&HA) + "version 1.2 / フリーウエア" + Chr(&HD) + Chr(&HA) + "http://inoue-h.connect.to/", vbOKOnly + vbInformation, "HTMLメール 発見ツール VBA")
 End Sub
 
 Private Sub BtnCansel_Click()
@@ -349,3 +432,6 @@ Private Sub BtnCansel_Click()
 ' ******************************
     DlgFindHtml.Hide
 End Sub
+
+' ファイル終了 EOF
+' ***********************
