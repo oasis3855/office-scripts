@@ -6,6 +6,7 @@
 <br />
 
 - [RndChar 簡易乱数表作成 for Microsoft Excel](#rndchar-簡易乱数表作成-for-microsoft-excel)
+- [Excel-to-Html ワークシートをHTML tableに変換 for Microsoft Excel](#excel-to-html-ワークシートをhtml-tableに変換-for-microsoft-excel)
 
 <br />
 <br />
@@ -15,6 +16,13 @@
 簡易乱数表を作成するExcelワークシートです。より安全なパスワード文字列を作るときの手助けとなるでしょう
 
 [配布ディレクトリ excel-rndchar](excel-rndchar/README.md) (2002/05/15)
+
+<br />
+<br />
+
+## Excel-to-Html ワークシートをHTML tableに変換 for Microsoft Excel
+
+[配布ディレクトリ excel-rndchar](excel-to-html/README.md) (2002/05/15)
 
 <br />
 <br />
