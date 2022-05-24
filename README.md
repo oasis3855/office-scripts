@@ -5,9 +5,20 @@
 <br />
 <br />
 
+- [Excel find comment : コメントのあるセルを検索 for Microsoft Excel](#excel-find-comment--コメントのあるセルを検索-for-microsoft-excel)
 - [RndChar : 簡易乱数表作成 for Microsoft Excel](#rndchar--簡易乱数表作成-for-microsoft-excel)
 - [Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel](#excel-to-html--ワークシートをhtml-tableに変換-for-microsoft-excel)
 - [Worksheet Compare : ワークシート比較 for Microsoft Excel](#worksheet-compare--ワークシート比較-for-microsoft-excel)
+
+<br />
+<br />
+
+## Excel find comment : コメントのあるセルを検索 for Microsoft Excel
+
+Excelワークブック内の全ワークシートから、コメントのあるセル一覧を表示します。また、それらのコメントを一括削除することもできます。
+
+[配布ディレクトリ excel-find-comment](excel-find-comment/README.md) (2022/06/25)
+
 
 <br />
 <br />
@@ -23,14 +34,14 @@
 
 ## Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel
 
-[配布ディレクトリ excel-to-html](excel-to-html/README.md) (2002/05/15)
+[配布ディレクトリ excel-to-html](excel-to-html/README.md) (2022/06/25)
 
 <br />
 <br />
 
 ## Worksheet Compare : ワークシート比較 for Microsoft Excel
 
-[配布ディレクトリ excel-worksheet-compare](excel-worksheet-compare/README.md) (2002/06/25)
+[配布ディレクトリ excel-worksheet-compare](excel-worksheet-compare/README.md) (2022/06/25)
 
 <br />
 <br />
