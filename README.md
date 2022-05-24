@@ -6,6 +6,7 @@
 <br />
 
 - [Excel find comment : コメントのあるセルを検索 for Microsoft Excel](#excel-find-comment--コメントのあるセルを検索-for-microsoft-excel)
+- [Excel find hidden line : 非表示の行・列を検索 for Microsoft Excel](#excel-find-hidden-line--非表示の行列を検索-for-microsoft-excel)
 - [RndChar : 簡易乱数表作成 for Microsoft Excel](#rndchar--簡易乱数表作成-for-microsoft-excel)
 - [Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel](#excel-to-html--ワークシートをhtml-tableに変換-for-microsoft-excel)
 - [Worksheet Compare : ワークシート比較 for Microsoft Excel](#worksheet-compare--ワークシート比較-for-microsoft-excel)
@@ -19,6 +20,15 @@ Excelワークブック内の全ワークシートから、コメントのある
 
 [配布ディレクトリ excel-find-comment](excel-find-comment/README.md) (2022/06/25)
 
+
+<br />
+<br />
+
+## Excel find hidden line : 非表示の行・列を検索 for Microsoft Excel
+
+Excelワークブック内の全ワークシートから、非表示となっている行・列の一覧を表示します。
+
+[配布ディレクトリ excel-find-hidden-line](excel-find-hidden-line/README.md) (2022/06/25)
 
 <br />
 <br />
