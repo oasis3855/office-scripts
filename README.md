@@ -11,6 +11,7 @@
 - [RndChar : 簡易乱数表作成 for Microsoft Excel](#rndchar--簡易乱数表作成-for-microsoft-excel)
 - [Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel](#excel-to-html--ワークシートをhtml-tableに変換-for-microsoft-excel)
 - [Worksheet Compare : ワークシート比較 for Microsoft Excel](#worksheet-compare--ワークシート比較-for-microsoft-excel)
+- [Outlookメール テキスト化ツール for Microsoft Outlook](#outlookメール-テキスト化ツール-for-microsoft-outlook)
 
 <br />
 <br />
@@ -54,6 +55,8 @@ Excelの名簿データを、外部Excelファイル・Wordファイルに差込
 
 ## Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel
 
+Excelワークシートの表組を、HTMLのtableソースコードに変換するVBAスクリプト
+
 [配布ディレクトリ excel-to-html](excel-to-html/README.md) (2022/06/25)
 
 <br />
@@ -61,7 +64,18 @@ Excelの名簿データを、外部Excelファイル・Wordファイルに差込
 
 ## Worksheet Compare : ワークシート比較 for Microsoft Excel
 
+2つのExcelワークシート間で差異のあるセルを着色するVBAスクリプト
+
 [配布ディレクトリ excel-worksheet-compare](excel-worksheet-compare/README.md) (2022/06/25)
+
+<br />
+<br />
+
+## Outlookメール テキスト化ツール for Microsoft Outlook
+
+Outlookに配信されるメールを一括してテキストファイルにエクスポートするツール
+
+[配布ディレクトリ outlook-mail-export](outlook-mail-export/README.md) (2022/07/05)
 
 <br />
 <br />
