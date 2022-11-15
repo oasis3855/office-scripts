@@ -11,6 +11,7 @@
 - [RndChar : 簡易乱数表作成 for Microsoft Excel](#rndchar--簡易乱数表作成-for-microsoft-excel)
 - [Excel to Html : ワークシートをHTML tableに変換 for Microsoft Excel](#excel-to-html--ワークシートをhtml-tableに変換-for-microsoft-excel)
 - [Worksheet Compare : ワークシート比較 for Microsoft Excel](#worksheet-compare--ワークシート比較-for-microsoft-excel)
+- [Outlook HTMLメール発見ツール for Microsoft Outlook](#outlook-htmlメール発見ツール-for-microsoft-outlook)
 - [Outlookメール テキスト化ツール for Microsoft Outlook](#outlookメール-テキスト化ツール-for-microsoft-outlook)
 
 <br />
@@ -71,11 +72,20 @@ Excelワークシートの表組を、HTMLのtableソースコードに変換す
 <br />
 <br />
 
+## Outlook HTMLメール発見ツール for Microsoft Outlook
+
+Outlookに配信されメールからHTML形式のものを探し出すツール
+
+[配布ディレクトリ outlook-mail-export](outlook-mail-export/README.md) (2022/07/05)
+
+<br />
+<br />
+
 ## Outlookメール テキスト化ツール for Microsoft Outlook
 
 Outlookに配信されるメールを一括してテキストファイルにエクスポートするツール
 
-[配布ディレクトリ outlook-mail-export](outlook-mail-export/README.md) (2022/07/05)
+[配布ディレクトリ outlook-htmlmail-find](outlook-htmlmail-find/README.md) (2003/05/08)
 
 <br />
 <br />

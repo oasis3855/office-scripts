@@ -14,6 +14,8 @@ Last Updated : July. 2022
 
 - ![download icon](../readme_pics/soft-ico-download-darkmode.gif)   [このGitHubリポジトリを参照する](../outlook-mail-export/download/) 
 
+- ![download icon](../readme_pics/soft-ico-download-darkmode.gif)   [Google Driveを参照する](https://drive.google.com/drive/folders/0B7BSijZJ2TAHNTM0ZjQ3ZGMtMWNlYi00OTEyLWIyZWItOGI5MDRhNDVjMjAz?resourcekey=0-9H_UDX8iDmU9j1-i0lfzwA)
+
 ## 概要
 
 Outlookに配信されるメールを一括してテキストファイルにエクスポートするツール。
@@ -58,6 +60,11 @@ Outlookに配信されるメールを一括してテキストファイルにエ�
 
     - Outlook2019対応(ファイル コモンダイアログ部分を削除)
     - MailItem, ReportItem, AppointmentItem, MeetingItem に対応
+
+## 主な掲載雑誌
+
+-    インターネットスタート・ウインドウズＲｏｍ！（毎日コミュニケーションズ） 
+-    ウインドウズ・パワー（アスキー） 
 
 ## ライセンス
 
