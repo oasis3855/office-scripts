@@ -5,6 +5,7 @@
 <br />
 <br />
 
+- [Binary Dump / Base64 Encode : バイナリダンプ／Base64エンコード for Microsoft Excel](#binary-dump--base64-encode--バイナリダンプbase64エンコード-for-microsoft-excel)
 - [Excel find comment : コメントのあるセルを検索 for Microsoft Excel](#excel-find-comment--コメントのあるセルを検索-for-microsoft-excel)
 - [Excel find hidden line : 非表示の行・列を検索 for Microsoft Excel](#excel-find-hidden-line--非表示の行列を検索-for-microsoft-excel)
 - [Outlookメール自動作成・名簿データ差込 for Microsoft Excel](#outlookメール自動作成名簿データ差込-for-microsoft-excel)
@@ -13,6 +14,15 @@
 - [Worksheet Compare : ワークシート比較 for Microsoft Excel](#worksheet-compare--ワークシート比較-for-microsoft-excel)
 - [Outlook HTMLメール発見ツール for Microsoft Outlook](#outlook-htmlメール発見ツール-for-microsoft-outlook)
 - [Outlookメール テキスト化ツール for Microsoft Outlook](#outlookメール-テキスト化ツール-for-microsoft-outlook)
+
+<br />
+<br />
+
+## Binary Dump / Base64 Encode : バイナリダンプ／Base64エンコード for Microsoft Excel
+
+任意のファイルのバイナリダンプ、Base64エンコードを行うVBAスクリプト
+
+[配布ディレクトリ excel-bin2text](excel-bin2text/README.md) (2023/02/02)
 
 <br />
 <br />
